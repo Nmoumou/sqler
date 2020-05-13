@@ -30,6 +30,7 @@ func init() {
 	flag.Parse()
 	runtime.GOMAXPROCS(*flagWorkers)
 
+
 	{
 		tstconn, err := sqlx.Connect(*flagDBDriver, *flagDBDSN)
 		if err != nil {

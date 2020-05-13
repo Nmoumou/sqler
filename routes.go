@@ -51,8 +51,10 @@ func routeExecMacro(c echo.Context) error {
 		})
 	}
 
-	return c.JSON(200, map[string]interface{}{
-		"success": true,
-		"data":    out,
-	})
+	// return c.JSON(200, map[string]interface{}{
+	// 	"success": true,
+	// 	"data":    out,
+	// })
+
+	return c.JSON(200, out)
 }

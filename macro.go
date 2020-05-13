@@ -107,6 +107,9 @@ func (m *Macro) execSQLQuery(sqls []string, input map[string]interface{}) (inter
 	}
 
 	conn, err := sqlx.Open(*flagDBDriver, *flagDBDSN)
+	conn.DB.SetMaxIdleConns(20)  // The default is defaultMaxIdleConns (= 2)
+	conn.DB.SetMaxOpenConns(200)  // The default is 0 (unlimited)
+	// conn.DB.SetConnMaxLifetime(3600 * time.Second)  // The default is 0 (connections reused forever)
 	if err != nil {
 		return nil, err
 	}

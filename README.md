@@ -1,9 +1,112 @@
-SQLer
+SQLermb(forked from sqler)
 =====
 > `SQL-er` is a tiny portable server enables you to write APIs using SQL query to be executed when anyone hits it, also it enables you to define validation rules so you can validate the request body/query params, as well as data transformation using simple `javascript` syntax. `sqler` uses `nginx` style configuration language ([`HCL`](https://github.com/hashicorp/hcl)) amd `javascript` engine for custom expressions.
 
+# Differences between sqlermb and sqler
+
+1. Only the content returned after a successful query is modified, and the original outer package is removed. How you define it in the **transformer** of the HCL configuration file is returned as it is
+
+​       The details are as follows:
+
+​       **(1)original sqler without transfomer return**
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Tom"
+        },
+        {
+            "id": 2,
+            "name": "Bob"
+        }
+    ],
+    "success": true
+}
+```
+
+​       **(2)sqlermb without transfomer return** 
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Tom"
+    },
+    {
+        "id": 2,
+        "name": "Bob"
+    }
+]
+```
+
+​      **with the same transfomer config in hcl file:**
+
+```js
+transformer = <<JS
+		(function(){
+			log("ori" + JSON.stringify($result));
+			var resobj = {
+					"result":{
+					   "content":[]
+					},
+					"version":'v1'
+			    };
+			resobj['result']['content'] = $result;
+			return resobj;
+		})()
+	JS
+```
+
+​     **(4)original sqler with transfomer return**
+
+```json
+{
+    "data": {
+        "result": {
+            "content": [
+                {
+                    "id": 1,
+                    "name": "Tom"
+                },
+                {
+                    "id": 2,
+                    "name": "Bob"
+                }
+            ]
+        },
+        "version": "v1"
+    },
+    "success": true
+}
+```
+
+​     **(5)sqlermb sqler with transfomer return**
+
+```json
+{
+    "result": {
+        "content": [
+            {
+                "id": 1,
+                "name": "Tom"
+            },
+            {
+                "id": 2,
+                "name": "Bob"
+            }
+        ]
+    },
+    "version": "v1"
+}
+```
+
+
+
 Table Of Contents
 =================
+
 - [SQLer](#sqler)
 - [Table Of Contents](#table-of-contents)
 - [Features](#features)
@@ -46,11 +149,17 @@ Quick Tour
 - Let's rename it to `sqler`, and copy it to `/usr/local/bin`
 - Now just run `sqler -h`, you will the next  
 ```bash
-                         ____   ___  _
-                        / ___| / _ \| |    ___ _ __
-                        \___ \| | | | |   / _ \ '__|
-                         ___) | |_| | |__|  __/ |
-                        |____/ \__\_\_____\___|_|
+                _
+    ___   __ _ | |  ___  _ __
+   / __| / _| || | / _ \| '__|
+   \__ \| (_| || ||  __/| |
+   |___/ \__, ||_| \___||_|    v2.2 edit by Mou
+                        
+                       _             _                _
+     _ __ ___    __ _ | |__    ___  | |_   ___   ___ | |__
+    | '_ | _ \  / _| || '_ \  / _ \ | __| / _ \ / __|| '_ \
+    | | | | | || (_| || |_) || (_) || |_ |  __/| (__ | | | |
+    |_| |_| |_| \__,_||_.__/  \___/  \__| \___| \___||_| |_|
 
         turn your SQL queries into safe valid RESTful apis.
 
@@ -97,18 +206,10 @@ Supported DBMSs
 
 Docker
 ======
-> SQLer has a docker image called `alash3al/sqler` it is an automated build, you can use it like the following:
+> Build ing.....
 
 ```bash
 
-# run the help message
-docker run --rm alash3al/sqler --help
-
-# connect to a local mysql
-docker run --network=host alash3al/sqler -driver=mysql -dsn=usr:pass@tcp(127.0.0.1:3306)/dbname
-
-# connect to another mysql container
-docker run -link mysql alash3al/sqler -driver=mysql -dsn=usr:pass@tcp(mysql:3306)/dbname
 
 ```
 
@@ -364,13 +465,19 @@ Issue/Suggestion/Contribution ?
 ===============================
 `SQLer` is your software, feel free to open an issue with your feature(s), suggestions, ... etc, also you can easily contribute even you aren't a `Go` developer, you can write wikis it is open for all, let's make `SQLer` more powerful.
 
-Author
+OriAuthor
 =======
 > I'm Mohamed Al Ashaal, just a problem solver :), you can view more projects from me [here](https://github.com/alash3al), and here is my email [m7medalash3al@gmail.com](mailto:m7medalash3al@gmail.com)
 
+Author
+=======
+
+> my email [niumonmon@gmail.com](mailto:niumonmon@gmail.com)
+
 License
 ========
-> Copyright 2019 The SQLer Authors. All rights reserved.
+
+> Copyright 2020 The SQLer Authors. All rights reserved.
 > Use of this source code is governed by a Apache 2.0
 > license that can be found in the [LICENSE](/License) file.
 
