@@ -1,5 +1,7 @@
 module github.com/Nmoumou/sqlermb
 
+go 1.13
+
 require (
 	cloud.google.com/go v0.34.0 // indirect
 	github.com/ClickHouse/clickhouse-go v1.3.12
@@ -31,5 +33,3 @@ require (
 )
 
 replace github.com/go-resty/resty => gopkg.in/resty.v1 v1.11.0
-
-go 1.13
