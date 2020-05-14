@@ -29,5 +29,5 @@ require (
 	google.golang.org/appengine v1.6.5 // indirect
 	gopkg.in/yaml.v2 v2.2.7 // indirect
 )
-
+replace github.com/go-resty/resty => gopkg.in/resty.v1 v1.11.0
 go 1.13
