@@ -1,5 +1,4 @@
-module github.com/alash3al/sqler
-
+module github.com/Nmoumou/sqlermb
 require (
 	cloud.google.com/go v0.34.0 // indirect
 	github.com/ClickHouse/clickhouse-go v1.3.12
@@ -10,7 +9,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
 	github.com/dlclark/regexp2 v1.1.6 // indirect
 	github.com/dop251/goja v0.0.0-20190105122144-6d5bf35058fa
-	github.com/go-resty/resty v2.2.0
+	gopkg.in/resty.v1 v1.11.0
 	github.com/go-sourcemap/sourcemap v2.1.2+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/google/go-cmp v0.3.1 // indirect
@@ -29,5 +28,4 @@ require (
 	google.golang.org/appengine v1.6.5 // indirect
 	gopkg.in/yaml.v2 v2.2.7 // indirect
 )
-
 go 1.13
