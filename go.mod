@@ -13,7 +13,6 @@ require (
 	github.com/dlclark/regexp2 v1.1.6 // indirect
 	github.com/dop251/goja v0.0.0-20190105122144-6d5bf35058fa
 	github.com/go-resty/resty/v2 v2.2.0
-	github.com/go-resty/resty v1.12.0
 	github.com/go-sourcemap/sourcemap v2.1.2+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/google/go-cmp v0.3.1 // indirect
@@ -31,6 +30,6 @@ require (
 	github.com/valyala/fasttemplate v0.0.0-20170224212429-dcecefd839c4 // indirect
 	google.golang.org/appengine v1.6.5 // indirect
 	gopkg.in/yaml.v2 v2.2.7 // indirect
-	gopkg.in/resty.v1 v1.12.0 // indirect
 )
+replace github.com/go-resty/resty => gopkg.in/resty.v1 v1.11.0
 replace github.com/go-resty/resty v1.12.0 => gopkg.in/resty.v1 v1.12.0
