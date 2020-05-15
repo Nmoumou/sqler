@@ -206,15 +206,16 @@ Supported DBMSs
 
 Docker
 ======
-> Build ing.....
+> docker pull niumoumoune/sqlermb:2.3
 
-```bash
-
-
+```shell
+# run the help message
+docker run --rm niumoumoune/sqlermb:2.3 --help
 ```
 
 Configuration Overview
 ======================
+
 ```hcl
 // create a macro/endpoint called "_boot",
 // this macro is private "used within other macros" 
