@@ -29,6 +29,5 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v0.0.0-20170224212429-dcecefd839c4 // indirect
 	google.golang.org/appengine v1.6.5 // indirect
-	gopkg.in/resty.v1 v1.12.0
 	gopkg.in/yaml.v2 v2.2.7 // indirect
 )
