@@ -1,35 +1,27 @@
-module github.com/Nmoumou/sqlermb
+module sqlermb
 
-go 1.13
+go 1.14
 
 require (
-	cloud.google.com/go v0.34.0 // indirect
-	github.com/ClickHouse/clickhouse-go v1.3.12
-	github.com/SAP/go-hdb v0.13.2
+	github.com/ClickHouse/clickhouse-go v1.4.0
+	github.com/SAP/go-hdb v0.100.5
 	github.com/alash3al/go-color v1.7.0
-	github.com/asaskevich/govalidator v0.0.0-20180720115003-f9ffefc3facf
-	github.com/denisenkom/go-mssqldb v0.0.0-20181014144952-4e0d7dc8888f
+	github.com/asaskevich/govalidator v0.0.0-20200428143746-21a406dcc535
+	github.com/denisenkom/go-mssqldb v0.0.0-20200428022330-06a60b6afbbc
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
-	github.com/dlclark/regexp2 v1.1.6 // indirect
-	github.com/dop251/goja v0.0.0-20190105122144-6d5bf35058fa
+	github.com/dlclark/regexp2 v1.2.0 // indirect
+	github.com/dop251/goja v0.0.0-20200414142002-77e84ffb8c65
 	github.com/go-resty/resty/v2 v2.2.0
-	github.com/go-sourcemap/sourcemap v2.1.2+incompatible // indirect
-	github.com/go-sql-driver/mysql v1.4.1
-	github.com/google/go-cmp v0.3.1 // indirect
+	github.com/go-sourcemap/sourcemap v2.1.3+incompatible // indirect
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/hashicorp/hcl v1.0.0
 	github.com/jmoiron/sqlx v1.2.0
-	github.com/labstack/echo v3.3.5+incompatible
-	github.com/labstack/gommon v0.2.8 // indirect
-	github.com/lib/pq v1.0.0
-	github.com/mattn/go-colorable v0.0.9 // indirect
-	github.com/mattn/go-isatty v0.0.4 // indirect
-	github.com/mattn/go-sqlite3 v1.10.0
-	github.com/robfig/cron/v3 v3.0.0
-	github.com/tidwall/redcon v0.9.0
-	github.com/valyala/bytebufferpool v1.0.0 // indirect
-	github.com/valyala/fasttemplate v0.0.0-20170224212429-dcecefd839c4 // indirect
-	google.golang.org/appengine v1.6.5 // indirect
-	gopkg.in/yaml.v2 v2.2.7 // indirect
-	gopkg.in/resty.v1 v1.12.0 // indirect
+	github.com/labstack/echo v3.3.10+incompatible
+	github.com/labstack/gommon v0.3.0 // indirect
+	github.com/lib/pq v1.5.2
+	github.com/mattn/go-colorable v0.1.6 // indirect
+	github.com/mattn/go-sqlite3 v2.0.3+incompatible
+	github.com/robfig/cron/v3 v3.0.1
+	github.com/tidwall/redcon v1.3.2
+	github.com/valyala/fasttemplate v1.1.0 // indirect
 )
-replace github.com/go-resty/resty => gopkg.in/resty.v1 v1.12.0
