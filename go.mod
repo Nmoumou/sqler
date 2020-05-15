@@ -25,3 +25,4 @@ require (
 	github.com/tidwall/redcon v1.3.2
 	github.com/valyala/fasttemplate v1.1.0 // indirect
 )
+
